@@ -1,0 +1,157 @@
+scratch
+
+
+				 <div id="F1" class="white_key F"><div id="F#1" class="black_key F#"></div></div><!--
+				 --><div id="G1" class="white_key G"><div id="G#1" class="black_key G#"></div></div><!--
+				 --><div id="A1" class="white_key A"><div id="A#1" class="black_key A#"></div></div><!--
+				 --><div id="B1" class="white_key B"></div><!--
+				 --><div id="C2" class="white_key C"><div id="C#2" class="black_key C#"></div></div><!--
+				 --><div id="D2" class="white_key D"><div id="D#2" class="black_key D#"></div></div><!--
+				 --><div id="E2" class="white_key E"></div><!--
+				 --><div id="F2" class="white_key F"><div id="F#2" class="black_key F#"></div></div><!--
+				 --><div id="G2" class="white_key G"><div id="G#2" class="black_key G#"></div></div><!--
+				 --><div id="A3" class="white_key A"><div id="A#3" class="black_key A#"></div></div>
+
+
+				    <div id='F1' class='white_key F'><div id='F#1' class='black_key F#'></div></div><!--
+				 --><div id='G1' class='white_key G'><div id='G#1' class='black_key G#'></div></div><!--
+				 --><div id='A1' class='white_key A'><div id='A#1' class='black_key A#'></div></div><!--
+				 --><div id='B1' class='white_key B'></div><!--
+				 --><div id='C2' class='white_key C'><div id='C#2' class='black_key C#'></div></div><!--
+				 --><div id='D2' class='white_key D'><div id='D#2' class='black_key D#'></div></div><!--
+				 --><div id='E2' class='white_key E'></div><!--
+				 --><div id='F2' class='white_key F'><div id='F#2' class='black_key F#'></div></div><!--
+				 --><div id='G2' class='white_key G'><div id='G#2' class='black_key G#'></div></div><!--
+				 --><div id='A3' class='white_key A'><div id='A#3' class='black_key A#'></div></div><!--
+				 --><div id='B3' class='white_key B'></div>
+
+
+
+
+
+			if (piano.chords.reset_selection[1] === 2) { // F mode
+				console.log("F mode");
+				wrap.append(piano.keys_to_render.start_F1);
+				$('.white_key').addClass('white_key_F_mode');
+			
+			} else if( piano.chords.reset_selection[1] === 1 ){ // C mode
+				wrap.append(piano.keys_to_render.start_C1);
+				$('.white_key').addClass('white_key_C_mode');
+			}
+
+		} else {
+		};
+
+
+
+
+
+	F# Gb Minor 7
+
+
+
+
+
+
+		console.log(input);
+
+		piano_full_dom_list = []; // clear piano_full_dom_list
+		piano_selected_dom_list = [];
+
+		// we're trying to get dom_array a nice list of which key id's it will use to check each click against.
+		// need to take each note from input and find an array of possible keys by class. then pick the first.
+
+		var array_of_all_ids_in_keyboard;
+		var full_class_list = [];
+
+		array_of_all_ids_in_keyboard = $('div', '#white_key_wrap');
+
+		// build full_dom_list
+		for (var i = 0; i < array_of_all_ids_in_keyboard.length; i++){ // set piano_full_dom_list
+			var note_id = array_of_all_ids_in_keyboard[i].id;
+			var class_list = array_of_all_ids_in_keyboard[i].classList[1]; // array position 2 holds the note name in html world
+			full_class_list.push(class_list);
+			var output = [note_id, class_list];
+			piano_full_dom_list.push(output);
+		}
+
+
+
+		for(var note in input){ // rewrite this to edit dom array. choose first name class from input, find first corresponding id in piano_full_dom_list, add to piano_selected_dom_list, slice off everything before first note, repeat for next note
+			
+
+			var this_note = input[note];
+			//console.log(this_note);
+
+			//var selector_string = "#white_key_wrap ." + this_note;
+			//var class_array = $(selector_string).toArray();
+			//var first_id_of_note = class_array[0].id;
+			
+			// append to piano_selected_dom_list
+			//piano_selected_dom_list.push(first_id_of_note);
+
+
+			//console.log("this note");
+			//console.log(this_note);
+
+			var matching_notes = [];
+
+			for (var i = 0; i <= full_class_list.length; i++) {
+				if (full_class_list[i] === this_note) {
+					console.log("hit it");
+					//console.log(full_class_list[i]);
+					//console.log(i);
+					matching_notes.push(i);
+				};
+			};
+
+			console.log(matching_notes);
+
+			var matching_note = 0;
+			for (var note in matching_notes){
+				if (matching_notes[note] == undefined){
+					console.log("undefined");
+				} else {
+					matching_note = matching_notes[note];
+					break;
+				}
+			}
+
+			var matching_note_number = matching_note;
+			console.log(matching_note_number);
+			var chosen_note_id = piano_full_dom_list[matching_note_number][0];
+
+			piano_selected_dom_list[piano_selected_dom_list.length] = chosen_note_id; // add chosen note id to fresh piano_selecte4d_dom_list array
+
+			// delete selected item from master list\
+
+			console.log(piano_selected_dom_list);
+
+			for (var i = 0; i <= parseInt(matching_note_number); i++){
+				piano_full_dom_list[i] = 0;
+				class_list[i] = 0;
+			}
+
+			console.log(piano_full_dom_list);
+
+
+			console.log(chosen_note_id);
+			console.log(piano_selected_dom_list);
+
+			console.log("-----")
+		}
+
+
+		console.log("testing variables: piano_full_dom_list");
+		console.log(piano_full_dom_list);
+
+		console.log("full_class_list");
+		console.log(full_class_list);
+
+		console.log("testing variables: piano_selected_dom_list");
+		console.log(piano_selected_dom_list);
+
+		console.log("testing variables: input")
+		console.log(input);
+
+
