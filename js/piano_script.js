@@ -644,6 +644,15 @@
 		};
 	}
 
+	function generate_fullscreen_button(){
+		if((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i))){
+			console.log("iphone");
+		} else {
+			console.log("generate button");
+			$('#select_menu').append("<img id='fullscreen_button' src='images/go_fullscreen.png' alt='fullscreen button'></img>");
+		}
+	}
+
 
 		
 $(document).ready(function(){
@@ -651,6 +660,8 @@ $(document).ready(function(){
 	//console.log("document ready");
 	
 	// some basic initialization here
+
+	generate_fullscreen_button();
 	
 	reset_piano();
 	getChordListAsArray();
