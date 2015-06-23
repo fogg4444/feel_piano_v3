@@ -281,10 +281,36 @@
 	}
 
 	function resizeWindow(){
-		var window_height = $(window).height();
+
+		var window_height = $(window).outerHeight(true);
 		var window_height_px = window_height + "px";
+		console.log("window height");
+		console.log(window_height);
+
+		function resize_the_piano_div(){
+			var offset_select_menu_height = $('#select_menu').outerHeight(true);
+			console.log(offset_select_menu_height);
+
+			var piano_wrap_size = window_height - offset_select_menu_height;
+			var piano_wrap_size_px = piano_wrap_size + "px";
+			var white_key_wrap = (piano_wrap_size - 10);
+			var white_key_wrap_px = white_key_wrap + "px";
+
+			console.log("offset selevt menu height");
+			console.log(offset_select_menu_height);
+			console.log("piano wrap size text");
+			console.log(piano_wrap_size_px);
+
+			$('#the_piano').css('height', piano_wrap_size_px);
+			//$('#white_key_wrap').css('height', piano_wrap_size_px);
+			$('.white_key').css('height', white_key_wrap_px);
+
+
+		}
+
 		//console.log(window_height_px);
 		$("#wrap").css('height', window_height_px);
+		resize_the_piano_div();
 	}
 
 	function populateSelectMenus(){
@@ -501,11 +527,7 @@
 	};
 
 	function initialize_touch_input(){
-	//	$(".black_key").on("mousedown", responseColor );
-	//	$(".black_key").on("touchstart", responseColor );
-	//	$(".white_key").on("mousedown", responseColor );
-	//	$(".white_key").on("touchstart", responseColor );
-		
+
 		$(".black_key").on("mousedown", function(event){
 			responseColor(event);
 		} );
@@ -550,11 +572,11 @@
 
 			var time_value = 0.0;
 			for(var note in piano.notes_on_keyboard){
-				console.log(piano.notes_on_keyboard[note][0]);
+				// console.log(piano.notes_on_keyboard[note][0]);
 				var this_note = piano.notes_on_keyboard[note][0];
-				console.log("this_note");
-				console.log(this_note);
-				console.log("-----------");
+				// console.log("this_note");
+				// console.log(this_note);
+				// console.log("-----------");
 				var formatted_time_array = ion.generate_length_array(piano.notes_on_keyboard[note][1]);
 
 				object_to_return[this_note] = formatted_time_array; // using this_note to find the right key to insert the time into
@@ -595,10 +617,34 @@
     	});
 	}
 
-	function fullscreen(){
+	function fullscreen_toggle(input){
+		console.log(input);
 		if (screenfull.enabled) {
-    		screenfull.toggle();
-		}
+
+			function toggle(){
+				if (screenfull.isFullscreen != true){
+					// go fullscreen
+					screenfull.request();
+					$('#fullscreen_button').attr("src", "images/leave_fullscreen.png");
+				} else {
+					// leave fullscreen
+					screenfull.exit();
+					$('#fullscreen_button').attr("src", "images/go_fullscreen.png");
+				};
+			}
+
+			if (input == "resize") {
+				if(screenfull.isFullscreen != true){
+					// handle screen resize via exit of fullscreen
+					$('#fullscreen_button').attr("src", "images/go_fullscreen.png");
+				}
+			} else{
+				toggle(); // run as normal
+				console.log("run as normal");
+			};
+
+
+		};
 	}
 
 
@@ -624,10 +670,11 @@ $(document).ready(function(){
 	// run resizeWindow() on user resize
 	$(window).resize(function(){
 		resizeWindow();
+		fullscreen_toggle("resize");
 	});
 
 	$('#fullscreen_button').click(function(){
-		fullscreen();
+		fullscreen_toggle();
 	});
 
 	initialize_ion_sound();
