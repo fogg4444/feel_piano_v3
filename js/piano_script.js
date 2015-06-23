@@ -302,7 +302,6 @@
 			console.log(piano_wrap_size_px);
 
 			$('#the_piano').css('height', piano_wrap_size_px);
-			//$('#white_key_wrap').css('height', piano_wrap_size_px);
 			$('.white_key').css('height', white_key_wrap_px);
 
 
