@@ -18,8 +18,8 @@
 			chords: {
 				// probably should double check all these...
 				A:    [["A","Cs","E"],  2],
-				AsorBb:[["As","D","F"], 2],
-				B:    [["B","Ds","Fs"], 2],
+				AsorBb:[["As","D","F"], 2], 
+				B:    [["B","Ds","Fs"], 2], 
 				C:    [["C","E","G"],   1],
 				CsorDb:[["Cs","F","Gs"], 1],
 				D:    [["D","Fs","A"],  1],
@@ -30,40 +30,42 @@
 				G:    [["G","B","D"],   2],
 				GsorAb:[["Gs","C","Ds"], 2],
 				
-				A_m:        [["A","C","D"],  2],
+				A_m:        [["A","C","E"],  2],
 				As_morBb_m: [["As","Cs","F"], 2],
 				B_m:        [["B","D","Fs"], 2],
-				C_m:        [["C","Eb","G"], 2],
+				C_m:        [["C","Ds","G"], 2],
 				Cs_morDb_m: [["Cs","E","Gs"], 2],
 				D_m:        [["D","F","A"],  2],
-				Ds_morEb_m: [["","",""], 2],
+				Ds_morEb_m: [["Ds","Fs","As"], 2],
 				E_m:        [["E","G","B"],  2],
-				F_m:        [["F","Ab","C"], 2],
-				G_m:        [["G","Bb","D"], 2],
+				F_m:        [["F","Gs","C"], 2],
+				Fs_morGb_m: [["Fs","A","Cs"], 2],
+				G_m:        [["G","As","D"], 2],
+				Gs_morAb_m: [["Gs","B","Ds"], 2],
 
-				A_7:  [["A","Cs","D","G"], 1],
-				B_7:  [["B","Ds","Fs","A"], 1],
-				C_7:  [["C","E","G","Bb"], 1],
-				D_7:  [["D","Fs","A","C"], 1],
-				E_7:  [["E","Gs","B","D"], 1],
-				F_7:  [["F","A","C","Eb"], 1],
-				G_7:  [["G","B","D","F"], 1],
+				// A_7:  [["A","Cs","D","G"], 1],
+				// B_7:  [["B","Ds","Fs","A"], 1],
+				// C_7:  [["C","E","G","Bb"], 1],
+				// D_7:  [["D","Fs","A","C"], 1],
+				// E_7:  [["E","Gs","B","D"], 1],
+				// F_7:  [["F","A","C","Eb"], 1],
+				// G_7:  [["G","B","D","F"], 1],
 
-				A_M7: [["A","Cs","D","Gs"], 2],
-				B_M7: [["B","Ds","Fs","As"], 2],
-				C_M7: [["C","E","G","B"], 1],
-				D_M7: [["D","Fs","A","Cs"], 1],
-				E_M7: [["E","Gs","B","Ds"], 1],
-				F_M7: [["F","A","C","E"], 1],
-				G_M7: [["G","B","D","Fs"], 1],
+				// A_M7: [["A","Cs","D","Gs"], 2],
+				// B_M7: [["B","Ds","Fs","As"], 2],
+				// C_M7: [["C","E","G","B"], 1],
+				// D_M7: [["D","Fs","A","Cs"], 1],
+				// E_M7: [["E","Gs","B","Ds"], 1],
+				// F_M7: [["F","A","C","E"], 1],
+				// G_M7: [["G","B","D","Fs"], 1],
 
-				A_m7: [["A","C","D","G"], 1],
-				B_m7: [["B","D","Fs","A"], 1],
-				C_m7: [["C","Eb","G","Bb"], 1],
-				D_m7: [["D","F","A","C"], 1],
-				E_m7: [["E","G","B","D"], 1],
-				F_m7: [["F","Ab","C","Eb"], 1],
-				G_m7: [["G","Bb","D","F"], 1],
+				// A_m7: [["A","C","D","G"], 1],
+				// B_m7: [["B","D","Fs","A"], 1],
+				// C_m7: [["C","Eb","G","Bb"], 1],
+				// D_m7: [["D","F","A","C"], 1],
+				// E_m7: [["E","G","B","D"], 1],
+				// F_m7: [["F","Ab","C","Eb"], 1],
+				// G_m7: [["G","Bb","D","F"], 1],
 			},
 			scales : {
 				A_major: [["A","B","Cs","D","E","Fs","Gs"], 2],
@@ -71,26 +73,54 @@
 				C_major: [["C","D","E","F","G","A","B"], 1],
 				D_major: [["D","E","Fs","G","A","B","Cs"], 1],
 				E_major: [["E","Fs","Gs","A","B","Cs","Ds"], 1],
-				F_major: [["F","G","A","Bb","C","D","E"], 2],
+				F_major: [["F","G","A","As","C","D","E"], 2],
 				G_major: [["G","A","B","C","D","E","Fs"], 2],
 
 				// almost done!..
-				A_minor: [["","","","","","",""], 1],
-				B_minor: [["","","","","","",""], 1],
-				C_minor: [["","","","","","",""], 1],
-				D_minor: [["","","","","","",""], 1],
-				E_minor: [["","","","","","",""], 1],
-				F_minor: [["","","","","","",""], 1],
-				G_minor: [["","","","","","",""], 1],
+				// A_minor: [["","","","","","",""], 1],
+				// B_minor: [["","","","","","",""], 1],
+				// C_minor: [["","","","","","",""], 1],
+				// D_minor: [["","","","","","",""], 1],
+				// E_minor: [["","","","","","",""], 1],
+				// F_minor: [["","","","","","",""], 1],
+				// G_minor: [["","","","","","",""], 1],
 
-				A_harmonic_minor: [["","","","","","",""], 1],
-				B_harmonic_minor: [["","","","","","",""], 1],
-				C_harmonic_minor: [["","","","","","",""], 1],
-				D_harmonic_minor: [["","","","","","",""], 1],
-				E_harmonic_minor: [["","","","","","",""], 1],
-				F_harmonic_minor: [["","","","","","",""], 1],
-				G_harmonic_minor: [["","","","","","",""], 1],
+				// A_harmonic_minor: [["","","","","","",""], 1],
+				// B_harmonic_minor: [["","","","","","",""], 1],
+				// C_harmonic_minor: [["","","","","","",""], 1],
+				// D_harmonic_minor: [["","","","","","",""], 1],
+				// E_harmonic_minor: [["","","","","","",""], 1],
+				// F_harmonic_minor: [["","","","","","",""], 1],
+				// G_harmonic_minor: [["","","","","","",""], 1],
 			},
+
+			notes_on_keyboard : [ // First value is piano id postion, second is start time in audio file
+								["C1", 0.000],
+								["Cs1", 4.233],
+								["D1", 8.520],
+								["Ds1", 12.75],
+								["E1", 17.022],
+								["F1", 21.260],
+								["Fs1", 25.521],
+								["G1", 29.76],
+								["Gs1", 34.023],
+								["A1", 38.274],
+								["As1", 42.523],
+								["B1", 46.772],
+								["C2", 51.023],
+								["Cs2", 55.270],
+								["D2", 59.524],
+								["Ds2", 63.771],
+								["E2", 68.022],
+								["F2", 72.273],
+								["Fs2", 76.522],
+								["G2", 80.772],
+								["Gs2", 85.022],
+								["A3", 89.269],
+								["As3", 93.519],
+								["B3", 97.774],  // left off here
+			],
+
 			keys_to_render : {
 				start_C1: "<div id='C1' class='white_key C'><div id='Cs1' class='black_key Cs'></div></div><!----><div id='D1' class='white_key D'><div id='Ds1' class='black_key Ds'></div></div><!----><div id='E1' class='white_key E'></div><!----><div id='F1' class='white_key F'><div id='Fs1' class='black_key Fs'></div></div><!----><div id='G1' class='white_key G'><div id='Gs1' class='black_key Gs'></div></div><!----><div id='A1' class='white_key A'><div id='As1' class='black_key As'></div></div><!----><div id='B1' class='white_key B'></div><!----><div id='C2' class='white_key C'><div id='Cs2' class='black_key Cs'></div></div><!----><div id='D2' class='white_key D'><div id='Ds2' class='black_key Ds'></div></div><!----><div id='E2' class='white_key E'></div><!---->",
 				start_F1: "<div id='F1' class='white_key F'><div id='Fs1' class='black_key Fs'></div></div><!----><div id='G1' class='white_key G'><div id='Gs1' class='black_key Gs'></div></div><!----><div id='A1' class='white_key A'><div id='As1' class='black_key As'></div></div><!----><div id='B1' class='white_key B'></div><!----><div id='C2' class='white_key C'><div id='Cs2' class='black_key Cs'></div></div><!----><div id='D2' class='white_key D'><div id='Ds2' class='black_key Ds'></div></div><!----><div id='E2' class='white_key E'></div><!----><div id='F2' class='white_key F'><div id='Fs2' class='black_key Fs'></div></div><!----><div id='G2' class='white_key G'><div id='Gs2' class='black_key Gs'></div></div><!----><div id='A3' class='white_key A'><div id='As3' class='black_key As'></div></div><!----><div id='B3' class='white_key B'></div>"
@@ -106,8 +136,13 @@
 			piano_selected_id_array = [],
 			piano_full_dom_list = [],
 			piano_full_id_list_css_reference = [],
-			piano_reset_input = []; // don't delete anyting from this
+			piano_reset_input = [],
+			selected_answers = [],
+			initial_green_route = 0; // don't delete anyting from this
 ;
+
+	// preload css background images
+
 
 
 	function getChordListAsArray(){
@@ -132,8 +167,18 @@
 		// Toggle key names visibility here somehow
 	};
 
+	function clean_array(input){
+		var names = input;
+		var uniqueNames = [];
+		$.each(names, function(i, el){
+    	if($.inArray(el, uniqueNames) === -1)
+    		uniqueNames.push(el);
+		});
+		return uniqueNames
+	}
+
 	function responseColor(e){
-		//console.log("response color test");
+		console.log("key response");
 		// prevent clicking the div below
 
 		e.preventDefault();
@@ -145,21 +190,89 @@
 		var key_id = key.id;
 		var key_class = key.class;
 
+		console.log(key_id);
+
+		function darkenGreen(id){
+			var formatted_key_id = "#" + id;
+			$(formatted_key_id).addClass('dark_green_paisley'); // introduce darkened paisley image
+		
+			setTimeout(function(){ // set back to full brighness
+				$(formatted_key_id).removeClass('dark_green_paisley')
+			}, 150);
+		}
+
 		// big if statement needs to go here to reference selected chord or scale and colorize accordingly
-		// compare 
-		if (piano_reset_input === undefined) {
+		if (piano_reset_input === undefined) { // if no slection has been made/ or piano has been reset.
 			// blink grey
 			key.classList.add('grey');
+			console.log("grey");
 			setTimeout(function() {key.classList.remove('grey');}, 150);
 		} else{
-			if ( $.inArray(key_id, piano_selected_id_array) > -1 ){// key_id is present in piano_selected_id_array
-				key.classList.add('green');
-			} else {
+
+			if ( $.inArray(key_id, piano_selected_id_array) > -1 ){// Correct!.key_id is present in piano_selected_id_array
+				
+				if (initial_green_route === 0) {
+					key.classList.add('green');
+					selected_answers.push(key_id);// add key_id to selected_answers
+					console.log("green!");	
+				} else {
+					console.log("darken");
+					darkenGreen(key_id);
+				};
+
+
+			} else { 				// wrong. not in piano_selected_id_array
 				// blink red once
 				key.classList.add('red');
+				console.log("red");
 				setTimeout(function() {key.classList.remove('red');},150);
 			};
+
+
+	//		function format_arrays(input){
+	//			var new_array = [];
+	//			new_array = input.sort().join(',');
+	//			clean_array(new_array);
+	//			return new_array
+	//		}
+
+
+		///	console.log("comparing these strings");
+		///	console.log( format_arrays(selected_answers) );
+		///	console.log( format_arrays(piano_selected_id_array) );
+
+			if ( clean_array(selected_answers).sort().join(',') === clean_array(piano_selected_id_array).sort().join(',') ){ // all answers found!
+
+
+
+				if (initial_green_route === 0) {
+					for(var this_id in piano_selected_id_array){
+						console.log("changing to paisley!");
+						console.log(piano_selected_id_array[this_id]);
+						var formatted_key_id = "#" + piano_selected_id_array[this_id];
+						$(formatted_key_id).removeClass('green').addClass('green_paisley');
+					}
+					console.log("Got it!. close initial green route");
+					initial_green_route = 1;
+				};
+
+
+
+
+			}
+
+
 		};
+
+		function play(note_name){
+			ion.sound.play("long_rhodes_C1_B3",{
+				part: note_name
+			});
+			// console.log("Played" + note_name);
+		}
+		
+		play(key_id);
+
 		e.stopPropagation();
 	}
 
@@ -207,8 +320,10 @@
 		console.log(input);
 
 		var reset_selection = [];
+		selected_answers = [];
 		reset_selection = input;
 		piano_reset_input = input;
+		initial_green_route = 0;
 		current_selection_notes = current_selection[0]
 
 		var wrap = $('#white_key_wrap');
@@ -296,8 +411,8 @@
 			piano_full_id_list.push(piano_full_dom_list[value][0]);
 		}
 		// double check it
-		// console.log("piano_full_id_list");
-		// console.log(piano_full_id_list);
+		 console.log("piano_full_id_list");
+		 console.log(piano_full_id_list);
 		// save it to piano_full_id_list_css_reference
 		piano_full_id_list_css_reference = piano_full_id_list;
 
@@ -412,12 +527,79 @@
 		//console.log(height);
 		//console.log(width);
 		if (height > width) {
-			alert("This website looks much better in landscape mode. Try turning your device.");
+			console.log("This website looks much better in landscape mode. Try turning your device.");
+			//$().
 		};
 	}
 
+	function initialize_ion_sound(){
+		console.log("ion sound");
+
+		function ion_sound_ready(){
+			console.log("ion sound ready callback!");
+		}
+
+		ion.generate_length_array = function(start_point){
+				var duration = 4.062;
+				return [start_point, duration];
+		},
+		ion.generate_sprite_list = function(){
+			var object_to_return = {};
+
+			console.log(object_to_return);
+
+			var time_value = 0.0;
+			for(var note in piano.notes_on_keyboard){
+				console.log(piano.notes_on_keyboard[note][0]);
+				var this_note = piano.notes_on_keyboard[note][0];
+				console.log("this_note");
+				console.log(this_note);
+				console.log("-----------");
+				var formatted_time_array = ion.generate_length_array(piano.notes_on_keyboard[note][1]);
+
+				object_to_return[this_note] = formatted_time_array; // using this_note to find the right key to insert the time into
+				time_value += 4.062;
+			};
+
+			console.log(object_to_return);
+			return object_to_return;
 
 
+			//return "C1": ion.generate_length_array(0.0),
+		}
+
+		ion.sound({
+			multiplay: true,
+			volume: 0.1,
+			ready_callback: ion_sound_ready(),
+
+    		sounds: [
+        		{
+           			// sprite name
+           			name: "long_rhodes_C1_B3",
+
+           			// sprite parts
+           			sprite: ion.generate_sprite_list(),
+       			}
+   			],
+    		path: "audio/long/",
+			preload: true
+		});
+	}
+
+	function preload(arrayOfImages) {
+    	$(arrayOfImages).each(function(){
+        	$('<img/>')[0].src = this;
+        	// Alternatively you could use:
+        	// (new Image()).src = this;
+    	});
+	}
+
+	function fullscreen(){
+		if (screenfull.enabled) {
+    		screenfull.toggle();
+		}
+	}
 
 
 		
@@ -428,17 +610,29 @@ $(document).ready(function(){
 	// some basic initialization here
 	
 	reset_piano();
-	alertIfPortrait();
 	getChordListAsArray();
 	getScaleListAsArray();
 	resizeWindow();
 	populateSelectMenus();
 	initialize_touch_input();
+	preload(['../images/jade_tile.png','../images/jade_tile_dark.png']);
+
+
+	// var test_array = ["Red", "Green", "Red"];
+	// clean_array(test_array);
 
 	// run resizeWindow() on user resize
 	$(window).resize(function(){
 		resizeWindow();
 	});
+
+	$('#fullscreen_button').click(function(){
+		fullscreen();
+	});
+
+	initialize_ion_sound();
+	alertIfPortrait();
+
 
 	// handle chord selection
 	$("#select_chord").change(function(){
@@ -460,29 +654,6 @@ $(document).ready(function(){
 			setCurrentSelection("scales", this.value);
 		}
 	});
-
-
-
-
-
-
-
-	/*
-	ion.sound({
-    	sounds: [
-        	{
-            	name: "notify_sound",
-            	volume: 1
-        	},
-
-		],
-    	volume: 0.5,
-    	path: "sounds/",
-		preload: true
-	});
-	*/
-
-	
 });
 
 

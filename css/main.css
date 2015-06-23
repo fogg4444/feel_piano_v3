@@ -61,10 +61,22 @@ h2 {
 }
 
 #select_menu {
-  padding: 0;
+  padding-top:5px;
   margin: 0; 
   height: 10%;
   color: white;
+}
+
+#fullscreen_button{
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
+.select_menu option {
+  font-size: 12em;
 }
 
 #feel_piano_header{
@@ -76,8 +88,6 @@ h2 {
   width: 98%;
   height: 89%;
   text-align: center;
-
-
 }
 
 
@@ -101,8 +111,8 @@ h2 {
   user-select: none;
 
   -webkit-border-radius:0px 0px 5px 5px;
-  -moz-border-radius:0px 0px 5px 5px;
-  border-radius:0px 0px 5px 5px;
+  -moz-border-radius:   0px 0px 5px 5px;
+  border-radius:        0px 0px 5px 5px;
 }
 
 .white_key_C_mode{
@@ -151,15 +161,27 @@ h2 {
 }
 
 .green {
-  background-color: green;
+  background-color: #00CC00;
+
 }
 
 .red {
-  background-color: red;
+  background-color: #FF0000;
+
 }
 
 .grey{
   background-color: grey;
 }
 
+.green_paisley{
+  background-image: url("../images/jade_tile.png");
+  background-color: black;
+
+}
+
+.dark_green_paisley{
+  background-image: url("../images/jade_tile_dark.png");
+
+}
 
