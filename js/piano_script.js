@@ -608,12 +608,10 @@
 		});
 	}
 
-	function preload(arrayOfImages) {
-    	$(arrayOfImages).each(function(){
-        	$('<img/>')[0].src = this;
-        	// Alternatively you could use:
-        	// (new Image()).src = this;
-    	});
+	$.preloadImages = function() {
+  		for (var i = 0; i < arguments.length; i++) {
+    		$("<img />").attr("src", arguments[i]);
+    	}
 	}
 
 	function fullscreen_toggle(input){
@@ -660,7 +658,7 @@ $(document).ready(function(){
 	resizeWindow();
 	populateSelectMenus();
 	initialize_touch_input();
-	preload(['../images/jade_tile.png','../images/jade_tile_dark.png']);
+	$.preloadImages('images/jade_tile.png','images/jade_tile_dark.png');
 
 
 	// var test_array = ["Red", "Green", "Red"];
