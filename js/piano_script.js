@@ -303,8 +303,6 @@
 
 			$('#the_piano').css('height', piano_wrap_size_px);
 			$('.white_key').css('height', white_key_wrap_px);
-
-
 		}
 
 		//console.log(window_height_px);
@@ -384,6 +382,8 @@
 			};
 		}
 		round_edges_first_and_last_white_key();
+		resizeWindow();
+
 	}
 
 	function round_edges_first_and_last_white_key(){
