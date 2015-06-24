@@ -47,6 +47,21 @@ h2 {
   right: 0px;
 }
 
+#progress_bar{
+  background-color: black;
+  width: 90%;
+  height: 15px;
+  border: grey 2px solid;
+  display: none;
+}
+
+#progress_color{
+  background-color: lightgreen;
+  float: left;
+  height: 100%;
+  width: 0%;
+}
+
 
 #the_piano {
   margin: 0;

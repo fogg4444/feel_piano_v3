@@ -284,22 +284,15 @@
 
 		var window_height = $(window).outerHeight(true);
 		var window_height_px = window_height + "px";
-		console.log("window height");
-		console.log(window_height);
 
 		function resize_the_piano_div(){
 			var offset_select_menu_height = $('#select_menu').outerHeight(true);
-			console.log(offset_select_menu_height);
 
 			var piano_wrap_size = window_height - offset_select_menu_height;
 			var piano_wrap_size_px = piano_wrap_size + "px";
 			var white_key_wrap = (piano_wrap_size - 10);
 			var white_key_wrap_px = white_key_wrap + "px";
 
-			console.log("offset selevt menu height");
-			console.log(offset_select_menu_height);
-			console.log("piano wrap size text");
-			console.log(piano_wrap_size_px);
 
 			$('#the_piano').css('height', piano_wrap_size_px);
 			$('.white_key').css('height', white_key_wrap_px);
@@ -553,60 +546,105 @@
 		};
 	}
 
-	function initialize_ion_sound(){
-		console.log("ion sound");
 
-		function ion_sound_ready(){
-			console.log("ion sound ready callback!");
-		}
+	function download_audio_and_initialize(){
+		console.log("download_audio_and_initialize");
 
-		ion.generate_length_array = function(start_point){
+		function initialize_ion_sound(){
+			function ion_sound_ready(){
+				console.log("ion sound ready callback!");
+			}
+
+			ion.generate_length_array = function(start_point){
 				var duration = 4.062;
 				return [start_point, duration];
-		},
-		ion.generate_sprite_list = function(){
-			var object_to_return = {};
-
-			console.log(object_to_return);
-
-			var time_value = 0.0;
-			for(var note in piano.notes_on_keyboard){
-				// console.log(piano.notes_on_keyboard[note][0]);
-				var this_note = piano.notes_on_keyboard[note][0];
-				// console.log("this_note");
-				// console.log(this_note);
-				// console.log("-----------");
-				var formatted_time_array = ion.generate_length_array(piano.notes_on_keyboard[note][1]);
-
-				object_to_return[this_note] = formatted_time_array; // using this_note to find the right key to insert the time into
-				time_value += 4.062;
 			};
+			ion.generate_sprite_list = function(){
+				var object_to_return = {};
+				var time_value = 0.0;
+				for(var note in piano.notes_on_keyboard){
+					// console.log(piano.notes_on_keyboard[note][0]);
+					var this_note = piano.notes_on_keyboard[note][0];
+					// console.log("this_note");
+					// console.log(this_note);
+					// console.log("-----------");
+					var formatted_time_array = ion.generate_length_array(piano.notes_on_keyboard[note][1]);
 
-			console.log(object_to_return);
-			return object_to_return;
+					object_to_return[this_note] = formatted_time_array; // using this_note to find the right key to insert the time into
+					time_value += 4.062;
+				};
 
-
+				// console.log(object_to_return);
+				return object_to_return;
 			//return "C1": ion.generate_length_array(0.0),
+			}
+			// actual initialization of the plugin
+			ion.sound({
+				multiplay: true,
+				volume: 0.1,
+				ready_callback: ion_sound_ready(),
+    			sounds:[
+        			{
+           				// sprite name
+           				name: "long_rhodes_C1_B3",
+
+           				// sprite parts
+           				sprite: ion.generate_sprite_list(),
+       				}
+   				],
+    			path: "audio/long/",
+				preload: true
+			});
 		}
 
-		ion.sound({
-			multiplay: true,
-			volume: 0.1,
-			ready_callback: ion_sound_ready(),
 
-    		sounds: [
-        		{
-           			// sprite name
-           			name: "long_rhodes_C1_B3",
+		function download_sound(){	
+			// generate progress bar and resize window
+			$("#progress_bar").show();
+			resizeWindow();
+		
+			if (Modernizr.audio.aac) {
+				ajaxDownloadAudio("aac");
+			} else if (Modernizr.audio.ogg) {				
+				ajaxDownloadAudio("ogg");
+			} else if (Modernizr.audio.mp3) {
+				ajaxDownloadAudio("mp3");
+			} else {
+				alert("audio not supported");
+			};
+		
+			function ajaxDownloadAudio(fileType){
+				// initiate ajax call
+				var chosen_url = "audio/long/long_rhodes_C1_B3." + fileType;
 
-           			// sprite parts
-           			sprite: ion.generate_sprite_list(),
-       			}
-   			],
-    		path: "audio/long/",
-			preload: true
-		});
+				$.ajax({
+					xhr : function(){
+						var xhr = new window.XMLHttpRequest();
+						// download progress
+						xhr.addEventListener("progress", function(evt){
+							if (evt.lengthComputable) {
+								var percentage_complete = Math.floor(100 * (evt.loaded / evt.total)) + "%";
+								console.log(percentage_complete);
+								$("#progress_color").css("width", percentage_complete);
+							};
+						}, false);
+					return xhr;
+					},
+					type : 'GET',
+					url : chosen_url,
+					async : true,
+					success : function(){
+						console.log("ajax success!");
+						initialize_ion_sound();
+						$("#progress_bar").hide();
+						resizeWindow();
+					}
+				});
+			}
+		}
+		download_sound();
 	}
+
 
 	$.preloadImages = function() {
   		for (var i = 0; i < arguments.length; i++) {
@@ -660,9 +698,9 @@ $(document).ready(function(){
 	//console.log("document ready");
 	
 	// some basic initialization here
+	// console.log(modernizr);
 
 	generate_fullscreen_button();
-	
 	reset_piano();
 	getChordListAsArray();
 	getScaleListAsArray();
@@ -685,7 +723,8 @@ $(document).ready(function(){
 		fullscreen_toggle();
 	});
 
-	initialize_ion_sound();
+	download_audio_and_initialize();
+
 	alertIfPortrait();
 
 

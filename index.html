@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="no-js" lang="en">
 <head>
 	<meta charset="UTF-8">
 	<meta name=viewport content="width=device-width, initial-scale=1, user-scalable=no">
@@ -10,6 +10,7 @@
 	
 	<script src="js/screenfull.js"></script>
 	<script src="js/ion.sound.js"></script>
+	<script src="js/modernizr.custom.75335.js"></script>
 
 
 </head>
@@ -18,12 +19,14 @@
 
 		<div id="piano_wrap">
 			<div id="select_menu">
-				<span>Feel Piano</span>
-				<select name="select_chord" id="select_chord" class="select_menu">
-				</select>
-				<select name="select_scale" id="select_scale" class="select_menu">
-				</select>
+					<span>Feel Piano</span>
+					<select name="select_chord" id="select_chord" class="select_menu">
+					</select>
+					<select name="select_scale" id="select_scale" class="select_menu">
+					</select>
+					<div id="progress_bar"><div id="progress_color"></div></div>
 			</div>
+
 			
 			<div id="the_piano">
 				<div id="white_key_wrap">
