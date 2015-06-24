@@ -17,3 +17,9 @@ The sounds are Fender Rhodes samples recorded from a Nord Electro keyboard and m
 
 Have fun! Give me feedback.
 
+
+
+
+TODO:
+
+- fix audio sprite start times. we're experiencing a little clipping as the playhead drop straight into a sample a little early.
