@@ -1,19 +1,3 @@
-	
-	//Define collection of piano paramaters
-
-
-	// TODO
-
-	// Get extra key added for F mode
-	// Reset width settings on F mode keys
-	// 
-	//
-	//
-	//
-	//
-	// change all sharp # signs to 
-	//
-	
 	var piano = {
 			chords: {
 				// probably should double check all these...
@@ -138,20 +122,13 @@
 			piano_full_id_list_css_reference = [],
 			piano_reset_input = [],
 			selected_answers = [],
-			initial_green_route = 0; // don't delete anyting from this
-;
-
-	// preload css background images
-
-
+			is_piano_paisley = false;
 
 	function getChordListAsArray(){
 		// add chords from master library to array
 		for(var chord in piano.chords){
 			chord_list_array.push(chord);
 		}
-		console.log("chord list array");
-		console.log(chord_list_array);
 	}
 
 	function getScaleListAsArray(){
@@ -159,7 +136,6 @@
 		for(var chord in piano.scales){
 			scale_list_array.push(chord);
 		}
-		//console.log(scale_list_array);
 	}
 
 
@@ -178,101 +154,110 @@
 	}
 
 	function responseColor(e){
-		console.log("key response");
-		// prevent clicking the div below
-
 		e.preventDefault();
-		// selecting the correct dom object on each click
-		//var DOM_object = this.id;
 		var DOM_object = e.target.id;
 		var key = document.getElementById(DOM_object);
-		//var key = $(DOM_object);
 		var key_id = key.id;
-		var key_class = key.class;
+		var blink_time = 150;
 
-		console.log(key_id);
-
-		function darkenGreen(id){
-			var formatted_key_id = "#" + id;
-			$(formatted_key_id).addClass('dark_green_paisley'); // introduce darkened paisley image
-		
-			setTimeout(function(){ // set back to full brighness
-				$(formatted_key_id).removeClass('dark_green_paisley')
-			}, 150);
+		function blinkGrey(){
+			key.classList.add('grey');
+			setTimeout(function(){
+				key.classList.remove('grey');
+			}, blink_time);
 		}
 
-		// big if statement needs to go here to reference selected chord or scale and colorize accordingly
-		if (piano_reset_input === undefined) { // if no slection has been made/ or piano has been reset.
-			// blink grey
-			key.classList.add('grey');
-			console.log("grey");
-			setTimeout(function() {key.classList.remove('grey');}, 150);
-		} else{
+		function green(){
+			key.classList.add('green');
+		}
 
-			if ( $.inArray(key_id, piano_selected_id_array) > -1 ){// Correct!.key_id is present in piano_selected_id_array
-				
-				if (initial_green_route === 0) {
-					key.classList.add('green');
-					selected_answers.push(key_id);// add key_id to selected_answers
-					console.log("green!");	
-				} else {
-					console.log("darken");
-					darkenGreen(key_id);
-				};
+		function darkenGreen(){
+			key.classList.add('dark_green');
+			setTimeout(function(){
+				key.classList.remove('dark_green');
+			}, blink_time);
+		}
 
+		function red(){
+			key.classList.add('red');
+			setTimeout(function(){
+				key.classList.remove('red');
+			}, blink_time);
+		}
 
-			} else { 				// wrong. not in piano_selected_id_array
-				// blink red once
-				key.classList.add('red');
-				console.log("red");
-				setTimeout(function() {key.classList.remove('red');},150);
+		function makePaisley(list){
+			console.log("Make Paisley Fired: " + list);
+			for(var note in selected_answers){
+				console.log(selected_answers[note]);
+				var note_id = selected_answers[note];
+				var dom_object = document.getElementById(note_id)
+				dom_object.classList.add('green_paisley');
+			}
+			is_piano_paisley = true;
+		}
+
+		function darkenPaisley(){
+			console.log("Darken Paisley Fired");
+			key.classList.add('dark_green_paisley');
+			setTimeout(function(){
+				key.classList.remove('dark_green_paisley');
+			}, blink_time);
+		}
+
+		function testAnswer(){
+			if (clean_array(selected_answers).sort().join(',') === clean_array(piano_selected_id_array).sort().join(',')) {
+				return true;
+			}else{
+				return false;
+			};
+		}
+
+		function test_note(){
+			 if ($.inArray(key_id, selected_answers) > -1 ) {
+				// key has been pressed before
+				return "again";
+			} else if ($.inArray(key_id, piano_selected_id_array) > -1) {
+				// key first press
+				selected_answers.push(key_id);
+				return "first";
+			} else {
+				return false;
+			};
+		}
+
+		// big conditional to handle all the possiblilties
+		if (piano_reset_input === undefined){
+			// Piano holds no selection blink grey
+			blinkGrey();
+		} else {
+			if (test_note() === "first") {
+				green(); 
+			} else if (test_note() === "again"){
+				darkenGreen();
+			} else {
+				red();
 			};
 
-
-	//		function format_arrays(input){
-	//			var new_array = [];
-	//			new_array = input.sort().join(',');
-	//			clean_array(new_array);
-	//			return new_array
-	//		}
-
-
-		///	console.log("comparing these strings");
-		///	console.log( format_arrays(selected_answers) );
-		///	console.log( format_arrays(piano_selected_id_array) );
-
-			if ( clean_array(selected_answers).sort().join(',') === clean_array(piano_selected_id_array).sort().join(',') ){ // all answers found!
-
-
-
-				if (initial_green_route === 0) {
-					for(var this_id in piano_selected_id_array){
-						console.log("changing to paisley!");
-						console.log(piano_selected_id_array[this_id]);
-						var formatted_key_id = "#" + piano_selected_id_array[this_id];
-						$(formatted_key_id).removeClass('green').addClass('green_paisley');
-					}
-					console.log("Got it!. close initial green route");
-					initial_green_route = 1;
+			// After running the colors, check if chord is correct. if it is, make all the notes paisley.
+			if (is_piano_paisley) {
+				if (test_note() ) {
+					darkenPaisley();
 				};
-
-
-
-
-			}
-
-
+			}else{
+				if ( testAnswer() ) { // answer fully correct
+					console.log("got it again!");
+					makePaisley();
+				}
+			};
 		};
 
 		function play(note_name){
-			ion.sound.play("long_rhodes_C1_B3",{
-				part: note_name
-			});
-			// console.log("Played" + note_name);
+		 	ion.sound.play("long_rhodes_C1_B3",{
+		 		part: note_name
+		 	});
+			console.log("Played" + note_name);
 		}
-		
 		play(key_id);
-
 		e.stopPropagation();
 	}
 
@@ -317,7 +302,6 @@
 				.attr("value", chord)
 				.text(no_underscore_chord) );
 		};
-
 		for(var scale in piano.scales){
 			no_underscore_scale = scale.replace(/_/g," ");
 			//console.log(scale);
@@ -332,15 +316,15 @@
 		// remove keyboard
 		// include correct keys
 
-		console.log("reset piano input");
-		console.log(input);
+		// console.log("reset piano input");
+		// console.log(input);
 
 		var reset_selection = [];
 		selected_answers = [];
 		reset_selection = input;
 		piano_reset_input = input;
-		initial_green_route = 0;
-		current_selection_notes = current_selection[0]
+		current_selection_notes = current_selection[0];
+		is_piano_paisley = false;
 
 		var wrap = $('#white_key_wrap');
 
@@ -429,8 +413,8 @@
 			piano_full_id_list.push(piano_full_dom_list[value][0]);
 		}
 		// double check it
-		 console.log("piano_full_id_list");
-		 console.log(piano_full_id_list);
+		 // console.log("piano_full_id_list");
+		 // console.log(piano_full_id_list);
 		// save it to piano_full_id_list_css_reference
 		piano_full_id_list_css_reference = piano_full_id_list;
 
@@ -487,11 +471,8 @@
 				//console.log(i);
 				piano_full_note_name_list[i] = 0;
 			}
-
 			//console.log("piano_full_note_name_list");
 			//console.log(piano_full_note_name_list);
-
-
 			//console.log("----------------");
 		}
 
@@ -519,7 +500,6 @@
 	};
 
 	function initialize_touch_input(){
-
 		$(".black_key").on("mousedown", function(event){
 			responseColor(event);
 		} );
@@ -548,13 +528,12 @@
 
 
 	function download_audio_and_initialize(){
-		console.log("download_audio_and_initialize");
+		// console.log("download_audio_and_initialize");
 
 		function initialize_ion_sound(){
 			function ion_sound_ready(){
-				console.log("ion sound ready callback!");
+				// console.log("ion sound ready callback!");
 			}
-
 			ion.generate_length_array = function(start_point){
 				var duration = 4.062;
 				return [start_point, duration];
@@ -596,8 +575,6 @@
 				preload: true
 			});
 		}
-
-
 		function download_sound(){	
 			// generate progress bar and resize window
 			$("#progress_bar").show();
@@ -624,7 +601,7 @@
 						xhr.addEventListener("progress", function(evt){
 							if (evt.lengthComputable) {
 								var percentage_complete = Math.floor(100 * (evt.loaded / evt.total)) + "%";
-								console.log(percentage_complete);
+								// console.log(percentage_complete);
 								$("#progress_color").css("width", percentage_complete);
 							};
 						}, false);
@@ -634,7 +611,7 @@
 					url : chosen_url,
 					async : true,
 					success : function(){
-						console.log("ajax success!");
+						// console.log("ajax success!");
 						initialize_ion_sound();
 						$("#progress_bar").hide();
 						resizeWindow();
@@ -642,7 +619,7 @@
 				});
 			}
 		}
-		download_sound();
+		download_sound(); // run all the sub functions above
 	}
 
 
@@ -686,7 +663,7 @@
 		if((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i))){
 			console.log("iphone");
 		} else {
-			console.log("generate button");
+			// console.log("generate button");
 			$('#select_menu').append("<img id='fullscreen_button' src='images/go_fullscreen.png' alt='fullscreen button'></img>");
 		}
 	}

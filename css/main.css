@@ -147,7 +147,10 @@ h2 {
 
 .green {
   background-color: #00CC00;
+}
 
+.dark_green{
+  background-color: darkgreen;
 }
 
 .red {
