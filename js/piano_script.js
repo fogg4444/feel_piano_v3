@@ -319,6 +319,8 @@
 		// console.log("reset piano input");
 		// console.log(input);
 
+		// remove keyboard
+
 		var reset_selection = [];
 		selected_answers = [];
 		reset_selection = input;
@@ -328,13 +330,19 @@
 
 		var wrap = $('#white_key_wrap');
 
-		if (arguments.length === 0) { // this is for initial loading or total clean reset with future reset button
-		
+		function reset_piano_no_arguments(){
+			wrap.empty();
 			wrap.append(piano.keys_to_render.start_C1);
 			current_white_key_class = "white_key_C_mode";
 			$('.white_key').addClass(current_white_key_class);
 			construct_dom_arrays();
+			initialize_touch_input();
+			resetDropdown();
+		}
 
+		if (arguments.length === 0) { // this is for initial loading or total clean reset with future reset button
+
+			reset_piano_no_arguments();
 		} else { // accepting arguments from the dropdown menus
 		
 			wrap.empty();
@@ -392,7 +400,6 @@
 		piano_selected_id_array = [];
 		piano_full_id_list_css_reference = []; // reset this each time
 		piano_full_dom_list = [];
-
 
 		array_of_all_divs_in_keyboard = $('div', '#white_key_wrap');
 		for (var i = 0; i < array_of_all_divs_in_keyboard.length; i++){ // set piano_full_dom_list
@@ -483,8 +490,14 @@
 	}
 
 	function resetDropdown(dom_id){
-			var id = "#" + dom_id + " option:first";
-			$(id).attr("selected", true);
+			if (dom_id === undefined){
+				// if no arguments, reset both of the dropdowns...
+				$("#select_chord option:first").attr("selected", true);
+				$("#select_scale option:first").attr("selected", true);
+			}else{
+				var id = "#" + dom_id + " option:first";
+				$(id).attr("selected", true);
+			};
 		}
 
 	function setCurrentSelection(chords_or_scales, this_value){
@@ -683,7 +696,7 @@ $(document).ready(function(){
 	getScaleListAsArray();
 	resizeWindow();
 	populateSelectMenus();
-	initialize_touch_input();
+
 	$.preloadImages('images/jade_tile.png','images/jade_tile_dark.png');
 
 
@@ -698,6 +711,10 @@ $(document).ready(function(){
 
 	$('#fullscreen_button').click(function(){
 		fullscreen_toggle();
+	});
+
+	$('#reset_piano_button').click(function(){
+		reset_piano();
 	});
 
 	download_audio_and_initialize();
@@ -726,10 +743,3 @@ $(document).ready(function(){
 		}
 	});
 });
-
-
-
-
-
-
-
