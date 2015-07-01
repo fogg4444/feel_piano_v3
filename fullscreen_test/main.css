@@ -1,0 +1,14 @@
+* {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+html,body{
+	margin: 0 auto;
+}
+
+#wrap{
+	border: 1em green solid;
+	width: 100%;
+}

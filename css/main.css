@@ -67,7 +67,6 @@ h2 {
   width: 0%;
 }
 
-
 #the_piano {
   margin: 0;
   padding: 0;
@@ -80,8 +79,6 @@ h2 {
   width: 98%;
   text-align: center;
 }
-
-
 
 .white_key {
   display: inline-block;
@@ -123,8 +120,6 @@ h2 {
   -moz-border-radius:0px 5px 5px 5px;
   border-radius:0px 5px 5px 5px;
 }
-
-
 
 .black_key {
   width: 50%;
@@ -177,4 +172,3 @@ h2 {
   background-image: url("../images/jade_tile_dark.png");
 
 }
-
