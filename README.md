@@ -2,7 +2,7 @@ Feel Piano
 
 An interactive music theory / keyboard education tool.
 
-It's live and I'm working on it here: http://brianfogg.com/sub/css_piano/css3_piano_3/
+It's live and I'm working on it here: http://brianfogg.com/feel_piano/
 
 This is my first real javascript project. My code is not as optimized as it could be. Some serious refactoring is in order but it's just a prototype and Im' trying to get all my features implemented first.
 
