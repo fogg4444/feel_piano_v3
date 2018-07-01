@@ -1,0 +1,174 @@
+* {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+html,body {
+  margin: 0 auto;
+  padding: 0;
+  font-family: sans-serif;
+  font-size: 1em;
+  width: 100%;
+  height: 100%;
+
+}
+
+#wrap {
+  background: red;
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+}
+
+h2 {
+  font-weight: normal;
+}
+
+#feel_piano_title{
+  float: left;
+  margin-left: 1%;
+}
+
+#piano_wrap {
+  margin: 0 auto;
+  width: 100%;
+  background: black;
+}
+
+#select_menu {
+  position: relative;
+  margin:0; 
+  padding-top: 1%;
+  padding-bottom: 1%;
+  width: 100%;
+  color: white;
+}
+
+#fullscreen_button{
+  position: absolute;
+  height: 100%;
+  top: 0px;
+  right: 0px;
+}
+
+#progress_bar{
+  background-color: black;
+  width: 90%;
+  height: 15px;
+  border: grey 2px solid;
+  display: none;
+}
+
+#progress_color{
+  background-color: lightgreen;
+  float: left;
+  height: 100%;
+  width: 0%;
+}
+
+#the_piano {
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  width: 100%;
+}
+
+#white_key_wrap {
+  margin: 0 auto;
+  width: 98%;
+  text-align: center;
+}
+
+.white_key {
+  display: inline-block;
+  background-color: white;
+
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+
+  border: 1px solid black;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  -webkit-border-radius:0px 0px 5px 5px;
+  -moz-border-radius:   0px 0px 5px 5px;
+  border-radius:        0px 0px 5px 5px;
+}
+
+.white_key_C_mode{
+    width: 10%;
+}
+
+.white_key_F_mode{
+  width: 9.0909%;
+}
+
+.first_white_key{
+  -webkit-border-radius:5px 0px 5px 5px;
+  -moz-border-radius:5px 0px 5px 5px;
+  border-radius:5px 0px 5px 5px;
+}
+.last_white_key{
+  -webkit-border-radius:0px 5px 5px 5px;
+  -moz-border-radius:0px 5px 5px 5px;
+  border-radius:0px 5px 5px 5px;
+}
+
+.black_key {
+  width: 50%;
+  height: 60%;
+  position: relative;
+  left: 77%;
+  background-color: black;
+  z-index: 1;
+
+  border-bottom: 2px solid black;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  -webkit-border-radius:0px 0px 5px 5px;
+  -moz-border-radius:0px 0px 5px 5px;
+  border-radius:0px 0px 5px 5px;
+}
+
+.green {
+  background-color: #00CC00;
+}
+
+.dark_green{
+  background-color: darkgreen;
+}
+
+.red {
+  background-color: #FF0000;
+
+}
+
+.grey{
+  background-color: grey;
+}
+
+.green_paisley{
+  background-image: url("../images/jade_tile.png");
+  background-color: black;
+
+}
+
+.dark_green_paisley{
+  background-image: url("../images/jade_tile_dark.png");
+
+}

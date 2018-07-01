@@ -1,0 +1,11 @@
+{
+  "name": "feel_piano_v3",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/fogg4444/feel_piano_v3",
+  "author": "Brian Fogg <fogg4444@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@google-cloud/storage": "^1.7.0"
+  }
+}
